@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+:root {
+    --white-color: #FFFFFF;
+    --dark-blue: #1E1F35;
+    --blue: #5B6AEA;
+    --soft-blue: #E1E5FD;
+    --white-shade: #F5F5F5;
+
+    --font-size-s: 0.9rem;
+    --font-size-m: 1.1rem;
+    --font-size-l: 1.5rem;
+    --font-size-xl: 3rem;
+    --font-size-xxl: 5rem;
+
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    --border-radius-s: 8px;
+    --border-radius-m: 30px;
+    --border-radius-circle: 50%;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+/* navbar */
+header {
+    background-color: var(--dark-blue);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+
+header .navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+}
+
+.navbar .nav-logo img {
+    --logo-height: 2.4rem; /* tweak this value as needed */
+    height: var(--logo-height);
+    max-width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    object-fit: contain;
+}
+
+.navbar .nav-menu{
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navbar .nav-menu .nav-link{
+    padding: 0.2rem 0.4rem;
+    color: var(--white-color);
+    font-size: var(--font-size-m);
+    transition: 0.3s ease;
+}
+
+.navbar .nav-menu .nav-link:hover {
+    color: var(--blue);
+}
+
+main{
+    --main-bg: url("assets/hero-page.png");
+    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), var(--main-bg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: var(--blue); /* fallback while image missing */
+    min-height: 100vh; /* ensure it fills viewport */
+    display: block;
+}
+
+/* Center hero content vertically and horizontally */
+.hero{
+    display: flex;
+    align-items: center; /* vertical center */
+    justify-content: center; /* horizontal center */
+    min-height: calc(100vh - 72px); /* account for header height if needed */
+    padding: 2rem 1rem;
+}
+
+.hero-content{
+    text-align: center;
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto; 
+    padding: 2rem;
+}
+
+.hero-content h1{
+    color: var(--white-shade);
+    font-size: var(--font-size-xxl);
+    margin-bottom: 0.5rem;
+}
+
+.hero-content h2{
+    color: var(--white-color);
+    font-size: var(--font-size-xl);
+    margin-bottom: 0.5rem;
+}
+
+.hero-content .btn-primary{
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: var(--blue);
+    color: var(--soft-blue);
+    font-size: var(--font-size-m);
+    font-weight: var(--font-weight-semibold);
+    border-radius: var(--border-radius-m);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-content .btn-primary:hover{
+    background-color: var(--dark-blue);
+    color: var(--white-color);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.18);
+    outline: none;
+}
