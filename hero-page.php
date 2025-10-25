@@ -11,12 +11,12 @@
     <header>
         <nav class="navbar">
             <nav class="nav-logo">
-                <a href="index.html">
+                <a href="hero-page.php">
                     <img src="assets/logo.png" alt="KimiApp Logo">
                 </a>
             </nav>
             <ul class="nav-menu">
-                <li><a href="login.html" class="nav-link">Log In</a></li>
+                <li><a href="login.php" class="nav-link">Log In</a></li>
             </ul>
         </nav>
     </header>
@@ -26,7 +26,7 @@
                 <h1>Bingung belajar reaksi kimia?</h1>
                 <h2>Yuk belajar di KimiApp!</h2>
                 <br>
-                <a href="register.html" class="btn-primary">Gabung Sekarang</a>
+                <a href="register.php" class="btn-primary">Gabung Sekarang</a>
             </div>
         </section>
     </main>
