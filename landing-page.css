@@ -68,7 +68,7 @@ header .navbar{
 body {
   font-family: "Plus Jakarta Sans", sans-serif;
   color: var(--foreground);
-  background-color: var(--white);
+  background: linear-gradient(135deg, var(--soft-blue), var(--blue));
 }
 
 a {
@@ -79,9 +79,14 @@ a {
 /* --- Tata Letak Utama & Dekorasi --- */
 .home-main {
   min-height: 100vh;
-  background: linear-gradient(to bottom right, var(--neutral-light), var(--white), var(--primary-light));
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,      /* putih di kiri atas */
+    #e8ecff 40%,     /* biru pucat */
+    #b8c4ff 100%     /* biru muda lembut */
+  );
   position: relative;
-  overflow-x: hidden; /* Mencegah blob menyebabkan scroll horizontal */
+  overflow-x: hidden;
 }
 
 .deco-blob-1, .deco-blob-2 {
@@ -138,6 +143,7 @@ a {
   color: var(--primary);
   background-color: transparent;
 }
+
 .btn-outline:hover {
   background-color: rgba(91, 106, 234, 0.1); /* hover:bg-primary/10 */
 }
