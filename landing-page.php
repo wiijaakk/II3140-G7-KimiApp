@@ -1,3 +1,10 @@
+<?php
+session_start();
+$uname = $_SESSION['username'] ?? '';
+function showUsername($uname){
+    return !empty($uname) ? "<h2 class=\"hero-title\">Hello, $uname! Selamat datang di</h2>" : '';
+}
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -7,28 +14,27 @@
   <link rel="stylesheet" href="landing-page.css">
 </head>
 <body>
-
+  <header>
+    <nav class="navbar">
+      <div class="nav-logo">
+        <a href="landing-page.php">
+          <img src="assets/logo.png" alt="KimiApp Logo">
+        </a>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="theory.html" class="nav-link">Teori</a></li>
+        <li><a href="virtuallab.html" class="nav-link">Simulasi</a></li>
+        <li><a href="quiz.php" class="nav-link">Kuis</a></li>
+        <li><a href="logout.php" class="nav-link">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
   <main class="home-main">
     <div class="deco-blob-1"></div>
     <div class="deco-blob-2"></div>
-
-    <header>
-      <nav class="navbar">
-        <div class="nav-logo">
-          <a href="landing-page.html">
-            <img src="assets/logo.png" alt="KimiApp Logo">
-          </a>
-        </div>
-        <ul class="nav-menu">
-          <li><a href="theory.html" class="nav-link">Teori</a></li>
-          <li><a href="simulation.html" class="nav-link">Simulasi</a></li>
-          <li><a href="quiz.html" class="nav-link">Kuis</a></li>
-        </ul>
-      </nav>
-    </header>
-
     <section class="hero-section">
       <div class="container hero-content">
+        <?= showUsername($uname); ?>
         <h2 class="hero-title">
           Virtual Lab Kimia Interaktif
         </h2>

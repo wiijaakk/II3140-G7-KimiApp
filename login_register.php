@@ -52,7 +52,7 @@ if(isset($_POST['login'])){
     $username = isset($_POST['username']) ? trim($_POST['username']) : '';
     $password = isset($_POST['password']) ? $_POST['password'] : '';
 
-    $check = $conn->prepare("SELECT id, username, email, password FROM users WHERE username = ?");
+    $check = $conn->prepare("SELECT id, username, email, password, max_score FROM users WHERE username = ?");
     $check->bind_param('s', $username);
     $check->execute();
     $result = $check->get_result();
@@ -62,14 +62,15 @@ if(isset($_POST['login'])){
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
             $_SESSION['email'] = $user['email'];
+            $_SESSION['max_score'] = (int) $user['max_score'];
             $check->close();
-            header('Location: #.php');
+            header('Location: landing-page.php');
             exit();
         }
     }
 
     $_SESSION['login_error']='Username atau password salah!';
     if(isset($check) && is_object($check)) $check->close();
-    header('Location: login.php');
+    header('Location: landing-page.php');
     exit();
 }

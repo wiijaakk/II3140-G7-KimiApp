@@ -1,3 +1,11 @@
+<?php
+session_start();
+$max_score = $_SESSION['max_score'];
+function showMaxScore($max_score){
+    $s = (int)$max_score;
+    return "<p id=\"max-score-display\">Skor Maksimalmu: $s</p>";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,18 +16,18 @@
     <link rel="stylesheet" href="quiz.css">
 </head>
 <body>
-    <!-- Header dengan Navigasi Horizontal -->
     <header>
       <nav class="navbar">
         <div class="nav-logo">
-          <a href="landing-page.html">
+          <a href="landing-page.php">
             <img src="assets/logo.png" alt="KimiApp Logo">
           </a>
         </div>
         <ul class="nav-menu">
           <li><a href="theory.html" class="nav-link">Teori</a></li>
-          <li><a href="simulation.html" class="nav-link">Simulasi</a></li>
-          <li><a href="quiz.html" class="nav-link">Kuis</a></li>
+          <li><a href="virtuallab.html" class="nav-link">Simulasi</a></li>
+          <li><a href="quiz.php" class="nav-link">Kuis</a></li>
+          <li><a href="logout.php" class="nav-link">Logout</a></li>
         </ul>
       </nav>
     </header>
@@ -32,6 +40,7 @@
             <div class="divider"></div>
             
             <div class="quiz-intro">
+                <?= showMaxScore($max_score); ?>
                 <p>Kuis ini terdiri dari 8 pertanyaan pilihan ganda.</p>
                 <p>Setiap jawaban yang benar bernilai 4 poin.</p>
             </div>

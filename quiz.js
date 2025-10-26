@@ -281,9 +281,40 @@ function showScore() {
     document.getElementById("restart-btn").addEventListener("click", function() {
         location.reload(); // Memuat ulang halaman untuk memulai kembali
     });
+
+    const finalPoints = score * 4;
+    submitScore(finalPoints).then(response => {
+        if (response && response.ok) {
+            if (response.updated) {
+                const maxEl = document.getElementById('max-score-display');
+                if (maxEl) {
+                    maxEl.textContent = 'Skor Maksimalmu: ' + response.max_score;
+                }
+            }
+        }
+    }).catch(err => console.error('Error saving score', err));
 }
 
-// Fungsi untuk mendapatkan pesan berdasarkan skor
+async function submitScore(finalScore) {
+    try {
+        const form = new FormData();
+        form.append('score', String(finalScore));
+        const res = await fetch('save_score.php', {
+            method: 'POST',
+            body: form,
+            credentials: 'same-origin'
+        });
+        if (!res.ok) {
+            let txt = await res.text();
+            try { return JSON.parse(txt); } catch(e) { return { ok: false, msg: txt } }
+        }
+        return await res.json();
+    } catch (e) {
+        console.error(e);
+        throw e;
+    }
+}
+
 function getScoreMessage(score) {
     const percentage = (score / questions.length) * 100;
     
