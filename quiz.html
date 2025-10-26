@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KimiApp - Quiz</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+    <!-- Header dengan Navigasi Horizontal -->
+    <header>
+      <nav class="navbar">
+        <div class="nav-logo">
+          <a href="landing-page.html">
+            <img src="assets/logo.png" alt="KimiApp Logo">
+          </a>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="theory.html" class="nav-link">Teori</a></li>
+          <li><a href="simulation.html" class="nav-link">Simulasi</a></li>
+          <li><a href="quiz.html" class="nav-link">Kuis</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Container Utama -->
+    <div class="app">
+        <!-- Start Screen - akan ditampilkan pertama kali -->
+        <div id="start-screen">
+            <h1>Kuis Kimia</h1>
+            <div class="divider"></div>
+            
+            <div class="quiz-intro">
+                <p>Kuis ini terdiri dari 8 pertanyaan pilihan ganda.</p>
+                <p>Setiap jawaban yang benar bernilai 4 poin.</p>
+            </div>
+            
+            <div class="quiz-rules">
+                <h3>Petunjuk:</h3>
+                <ul>
+                    <li>Pilih satu jawaban yang paling tepat</li>
+                    <li>Anda akan melihat penjelasan untuk setiap jawaban</li>
+                    <li>Klik "Next" untuk melanjutkan ke pertanyaan berikutnya</li>
+                </ul>
+            </div>
+            
+            <button id="start-btn">Mulai Kuis</button>
+        </div>
+
+        <!-- Quiz Screen - akan disembunyikan pada awalnya -->
+        <div id="quiz-screen" class="hidden">
+            <h1>Kuis Kimia</h1>
+            <div class="quiz">
+                <div class="quiz-header">
+                    <div class="progress-text">
+                        <span>Pertanyaan <span id="current-question">1</span> dari <span id="total-questions">8</span></span>
+                        <span id="points">4 poin</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                </div>
+                <h2 id="question">Question text</h2>
+                <div id="choices">
+                    <button class="choice-btn">Choice 1</button>
+                    <button class="choice-btn">Choice 2</button>
+                    <button class="choice-btn">Choice 3</button>
+                    <button class="choice-btn">Choice 4</button>
+                </div>
+                <button id="next-btn">Next</button>
+            </div>
+        </div>
+    </div>
+    <script src="quiz.js"></script>
+</body>
+</html>
