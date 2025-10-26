@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KimiApp</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="grad-bg">
+        <div class="simulation-container">
+            <h1 style="text-align: center; color: var(--white-shade); margin-bottom: 2rem;">Simulasi Interaktif: Indikator Asam-Basa</h1>
+            <div class="simulation-wrapper">
+                <div class="simulation-section">
+                    <h2 style="color: var(--blue); margin-bottom: 1.5rem;">Pilih Larutan</h2>
+                    <div class="solution-grid">
+                        <button class="solution-btn" data-solution="hcl">
+                            <div class="solution-name">HCl</div>
+                            <div class="solution-desc">Asam Klorida</div>
+                        </button>
+                        <button class="solution-btn" data-solution="h2o">
+                            <div class="solution-name">H₂O</div>
+                            <div class="solution-desc">Air (Netral)</div>
+                        </button>
+                        <button class="solution-btn" data-solution="naoh">
+                            <div class="solution-name">NaOH</div>
+                            <div class="solution-desc">Natrium Hidroksida</div>
+                        </button>
+                    </div>
+                    <div id="selected-solution" style="text-align: center; margin-top: 1rem; color: var(--blue); font-weight: var(--font-weight-semibold);">
+                        Larutan belum dipilih
+                    </div>
+                </div>
+
+                <div class="simulation-section">
+                    <h2 style="color: var(--blue); margin-bottom: 1.5rem;">Pilih Indikator</h2>
+                    <div class="indicator-grid">
+                        <button class="indicator-btn" data-indicator="fenolftalein">
+                            <div class="indicator-name">Fenolftalein</div>
+                            <div class="indicator-ph">pH: 8.3 - 10.0</div>
+                        </button>
+                        <button class="indicator-btn" data-indicator="metil-jingga">
+                            <div class="indicator-name">Metil Jingga</div>
+                            <div class="indicator-ph">pH: 3.1 - 4.4</div>
+                        </button>
+                        <button class="indicator-btn" data-indicator="bromtimol-biru">
+                            <div class="indicator-name">Bromtimol Biru</div>
+                            <div class="indicator-ph">pH: 6.0 - 7.6</div>
+                        </button>
+                    </div>
+                    <div id="selected-indicator" style="text-align: center; margin-top: 1rem; color: var(--blue); font-weight: var(--font-weight-semibold);">
+                        Indikator belum dipilih
+                    </div>
+                </div>
+            </div>
+
+            <div id="result-section" class="result-section" style="display: none;">
+                <h2 style="color: var(--blue); margin-bottom: 2rem; text-align: center;">Hasil Eksperimen</h2>
+                <div class="result-wrapper">
+                    <div class="result-info">
+                        <div class="info-item">
+                            <span class="info-label">Larutan:</span>
+                            <span id="result-solution" class="info-value"></span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Indikator:</span>
+                            <span id="result-indicator" class="info-value"></span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Rentang pH:</span>
+                            <span id="result-ph" class="info-value"></span>
+                        </div>
+                    </div>
+
+                    <div class="test-tube-container">
+                        <div id="test-tube" class="test-tube"></div>
+                        <div class="test-tube-label">Tabung Reaksi</div>
+                    </div>
+
+                    <div class="result-description">
+                        <h3 style="color: var(--dark-blue); margin-bottom: 0.5rem;">Penjelasan:</h3>
+                        <p id="result-explanation" style="color: var(--dark-blue); line-height: 1.6;"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reference-table">
+                <h2 style="color: var(--blue); margin-bottom: 1.5rem; text-align: center;">Tabel Referensi Indikator</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Indikator</th>
+                            <th>Warna di HCl</th>
+                            <th>Warna di H₂O</th>
+                            <th>Warna di NaOH</th>
+                            <th>Rentang pH</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Fenolftalein</td>
+                            <td><span class="color-box" style="background-color: #FFFFFF; border: 1px solid #ccc;"></span> Tidak berwarna</td>
+                            <td><span class="color-box" style="background-color: #FFFFFF; border: 1px solid #ccc;"></span> Tidak berwarna</td>
+                            <td><span class="color-box" style="background-color: #FF69B4;"></span> Merah Muda</td>
+                            <td>8.3 - 10.0</td>
+                        </tr>
+                        <tr>
+                            <td>Metil Jingga</td>
+                            <td><span class="color-box" style="background-color: #FF4444;"></span> Merah</td>
+                            <td><span class="color-box" style="background-color: #FF8C00;"></span> Orange</td>
+                            <td><span class="color-box" style="background-color: #FFD700;"></span> Kuning</td>
+                            <td>3.1 - 4.4</td>
+                        </tr>
+                        <tr>
+                            <td>Bromtimol Biru</td>
+                            <td><span class="color-box" style="background-color: #FFD700;"></span> Kuning</td>
+                            <td><span class="color-box" style="background-color: #00AA00;"></span> Hijau</td>
+                            <td><span class="color-box" style="background-color: #4169E1;"></span> Biru</td>
+                            <td>6.0 - 7.6</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="virtuallab.js"></script>
+</body>
+</html>
