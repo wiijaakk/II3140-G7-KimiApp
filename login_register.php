@@ -32,8 +32,9 @@ if(isset($_POST['register'])){
     $check->close();
 
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-    $check = $conn->prepare("INSERT INTO users (email, username, password) VALUES (?, ?, ?)");
-    $check->bind_param('sss', $email, $username, $passwordHash);
+    $check = $conn->prepare("INSERT INTO users (email, username, password, max_score) VALUES (?, ?, ?, ?)");
+    $max_score = 0;
+    $check->bind_param('sssi', $email, $username, $passwordHash, $max_score);
     if($check->execute()){
         $_SESSION['register_success'] = 'Pendaftaran berhasil. Silakan login.';
         $check->close();
