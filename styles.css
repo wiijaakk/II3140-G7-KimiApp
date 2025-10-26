@@ -44,7 +44,6 @@ button {
     background: none;
 }
 
-/* navbar */
 header {
     background-color: var(--dark-blue);
     position: sticky;
@@ -61,7 +60,7 @@ header .navbar{
 }
 
 .navbar .nav-logo img {
-    --logo-height: 2.4rem; /* tweak this value as needed */
+    --logo-height: 2.4rem;
     height: var(--logo-height);
     max-width: 100%;
     display: inline-block;
@@ -91,13 +90,11 @@ main{
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    background-color: var(--blue); /* fallback while image missing */
-    min-height: 100vh; /* ensure it fills viewport */
+    background-color: var(--blue);
+    min-height: 100vh;
     display: block;
 }
 
-/* Utilities moved out so they can be applied directly on the <main> element */
-/* Apply like: <main class="alt-main" style="--alt-bg: url('assets/login-register-page.png')"> */
 .alt-main{
     --alt-bg: url("assets/login-register-page.png");
     --main-bg: var(--alt-bg, none);
@@ -113,12 +110,11 @@ main{
     background-image: linear-gradient(135deg, var(--soft-blue), var(--blue));
 }
 
-/* Center hero content vertically and horizontally */
 .hero{
     display: flex;
-    align-items: center; /* vertical center */
-    justify-content: center; /* horizontal center */
-    min-height: calc(100vh - 72px); /* account for header height if needed */
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 72px); 
     padding: 2rem 1rem;
 }
 
@@ -165,8 +161,7 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: calc(100vh); /* keep vertically centered under header */
-    /* padding: 2rem 1rem; */
+    min-height: calc(100vh); 
 }
 .masuk .masuk-card {
     box-shadow: 0 8px 24px rgba(0,0,0,0.12);
@@ -175,16 +170,15 @@ main{
     max-width: 520px;
     min-height: 450px;
     border-radius: var(--border-radius-m);
-    /* display: flex; */
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0.6rem; /* tightened gap between children */
-    padding: 2rem 1.8rem; /* slightly reduced padding */
+    gap: 0.6rem; 
+    padding: 2rem 1.8rem; 
 }
 
 .masuk .masuk-logo {
-    --logo-height: 10rem; /* slightly smaller */
+    --logo-height: 10rem;
     height: var(--logo-height);
     max-width: 100%;
 }
@@ -211,7 +205,7 @@ main{
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-bold);
     text-align: center;
-    margin-top: 0.15rem; /* pull title closer to logo */
+    margin-top: 0.15rem; 
 }
 
 .masuk .masuk-card h2{
@@ -256,7 +250,7 @@ main{
     margin-bottom: 0.5rem;
     text-align: center;
 }
-/* helper classes for server-side messages */
+
 .error-message{
     color: red;
     font-size: var(--font-size-s);
@@ -421,7 +415,7 @@ main{
     right: 0;
     height: 100%;
     background-color: currentColor;
-    transition: height 0.5s ease;
+    transition: height 0.5s ease, background-color 0.3s ease;
 }
 
 .test-tube-label {
