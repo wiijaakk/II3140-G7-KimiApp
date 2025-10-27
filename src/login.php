@@ -16,7 +16,7 @@ function showSuccess($msg){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KimiApp - Log In</title>
+    <title>KimiApp - Login</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="styles.css">
     <script type="text/javascript" src="validation.js" defer></script>
