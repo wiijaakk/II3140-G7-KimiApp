@@ -25,7 +25,6 @@
 </header>
 
   <main>
-    <!-- Hero Section -->
     <section class="hero">
       <div class="container">
         <div class="hero-content">
@@ -37,11 +36,9 @@
       </div>
     </section>
 
-    <!-- Content Section -->
     <section class="content">
       <div class="container">
         <div class="sections">
-          <!-- Section 1: Konsep Dasar Larutan -->
           <div class="card section-card" id="section-basics">
             <div class="card-header">
               <div class="header-content">
@@ -52,7 +49,6 @@
             </div>
 
             <div class="card-content" id="content-basics">
-              <!-- Main content -->
               <div class="main-content">
                 <div class="content-item">
                   <div class="number-bullet">
@@ -80,7 +76,6 @@
                 </div>
               </div>
 
-              <!-- Detail cards -->
               <div class="detail-cards">
                 <div class="theory-card">
                   <div class="theory-card-header">
@@ -110,7 +105,6 @@
             </div>
           </div>
 
-          <!-- Section 2: Jenis-Jenis Reaksi Kimia -->
           <div class="card section-card" id="section-reactions">
             <div class="card-header">
               <div class="header-content">
@@ -121,7 +115,6 @@
             </div>
 
             <div class="card-content hidden" id="content-reactions">
-              <!-- Main content -->
               <div class="main-content">
                 <div class="content-item">
                   <div class="number-bullet">
@@ -149,7 +142,6 @@
                 </div>
               </div>
 
-              <!-- Detail cards -->
               <div class="detail-cards">
                 <div class="theory-card">
                   <div class="theory-card-header">
@@ -179,7 +171,6 @@
             </div>
           </div>
 
-          <!-- Section 3: Perubahan Warna dalam Pencampuran -->
           <div class="card section-card" id="section-colors">
             <div class="card-header">
               <div class="header-content">
@@ -190,7 +181,6 @@
             </div>
 
             <div class="card-content hidden" id="content-colors">
-              <!-- Main content -->
               <div class="main-content">
                 <div class="content-item">
                   <div class="number-bullet">
@@ -218,7 +208,6 @@
                 </div>
               </div>
 
-              <!-- Detail cards -->
               <div class="detail-cards">
                 <div class="theory-card">
                   <div class="theory-card-header">
@@ -248,7 +237,6 @@
             </div>
           </div>
 
-          <!-- Section 4: Keselamatan Laboratorium -->
           <div class="card section-card" id="section-safety">
             <div class="card-header">
               <div class="header-content">
@@ -259,7 +247,6 @@
             </div>
 
             <div class="card-content hidden" id="content-safety">
-              <!-- Main content -->
               <div class="main-content">
                 <div class="content-item">
                   <div class="number-bullet">
@@ -287,7 +274,6 @@
                 </div>
               </div>
 
-              <!-- Detail cards -->
               <div class="detail-cards">
                 <div class="theory-card">
                   <div class="theory-card-header">
@@ -318,7 +304,6 @@
           </div>
         </div>
 
-        <!-- Indicator Chart -->
         <div class="indicator-chart-container">
           <div class="card">
             <h3 class="chart-title">Tabel Indikator pH</h3>
@@ -416,7 +401,6 @@
           </div>
         </div>
 
-        <!-- Key Concepts -->
         <div class="key-concepts-card">
           <h3 class="key-concepts-title">Konsep Kunci</h3>
           <div class="concepts-grid">
@@ -439,7 +423,6 @@
           </div>
         </div>
 
-        <!-- Navigation Buttons -->
         <div class="navigation-buttons">
           <a href="landing-page.html" class="back-button">← Kembali</a>
           <button class="next-button">Lanjut ke Simulasi →</button>
@@ -449,13 +432,9 @@
   </main>
 
   <script>
-    // JavaScript untuk fungsi expand/collapse sections
     document.addEventListener('DOMContentLoaded', function() {
-      // Default section yang terbuka
       document.getElementById('content-basics').classList.remove('hidden');
       document.getElementById('expand-basics').classList.add('expanded');
-      
-      // Event listeners untuk semua section headers
       document.getElementById('section-basics').addEventListener('click', function() {
         toggleSection('basics');
       });
@@ -477,7 +456,6 @@
         const expandIcon = document.getElementById('expand-' + sectionId);
         
         if (content.classList.contains('hidden')) {
-          // Tutup semua section terlebih dahulu
           document.querySelectorAll('.card-content').forEach(function(el) {
             el.classList.add('hidden');
           });
@@ -485,11 +463,9 @@
             el.classList.remove('expanded');
           });
           
-          // Buka section yang diklik
           content.classList.remove('hidden');
           expandIcon.classList.add('expanded');
         } else {
-          // Tutup section jika diklik saat terbuka
           content.classList.add('hidden');
           expandIcon.classList.remove('expanded');
         }

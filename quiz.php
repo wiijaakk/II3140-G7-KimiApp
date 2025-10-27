@@ -32,9 +32,7 @@ function showMaxScore($max_score){
       </nav>
     </header>
 
-    <!-- Container Utama -->
     <div class="app">
-        <!-- Start Screen - akan ditampilkan pertama kali -->
         <div id="start-screen">
             <h1>Kuis Kimia</h1>
             <div class="divider"></div>
@@ -57,7 +55,6 @@ function showMaxScore($max_score){
             <button id="start-btn">Mulai Kuis</button>
         </div>
 
-        <!-- Quiz Screen - akan disembunyikan pada awalnya -->
         <div id="quiz-screen" class="hidden">
             <h1>Kuis Kimia</h1>
             <div class="quiz">

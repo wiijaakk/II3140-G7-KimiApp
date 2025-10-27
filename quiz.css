@@ -47,7 +47,6 @@ button {
     background: none;
 }
 
-/* Body styling */
 body {
     margin: 0;
     min-height: 100vh;
@@ -59,7 +58,6 @@ body {
     padding-bottom: 50px;
 }
 
-/* navbar */
 header {
     background-color: var(--dark-blue);
     position: sticky;
@@ -76,7 +74,7 @@ header .navbar{
 }
 
 .navbar .nav-logo img {
-    --logo-height: 2.4rem; /* tweak this value as needed */
+    --logo-height: 2.4rem; 
     height: var(--logo-height);
     max-width: 100%;
     display: inline-block;
@@ -100,7 +98,6 @@ header .navbar{
     color: var(--blue);
 }
 
-/* Main app container */
 .app {
     background: var(--white-color);
     width: 95%;
@@ -114,7 +111,6 @@ header .navbar{
     overflow: hidden;
 }
 
-/* Start Screen Styles */
 #start-screen {
     display: flex;
     flex-direction: column;
@@ -218,12 +214,10 @@ header .navbar{
     box-shadow: 0 2px 8px rgba(100, 112, 234, 0.4);
 }
 
-/* Hide elements with the hidden class */
 .hidden {
     display: none !important;
 }
 
-/* Quiz Screen Styles */
 .quiz {
     padding: 20px 0;
 }
@@ -255,7 +249,7 @@ header .navbar{
 }
 
 .progress {
-    width: 12.5%; /* 100% / 8 questions = 12.5% per question */
+    width: 12.5%; 
     height: 100%;
     background: var(--blue);
     border-radius: 10px;
@@ -364,7 +358,6 @@ header .navbar{
     box-shadow: 0 6px 15px rgba(100, 112, 234, 0.4);
 }
 
-/* Score screen styles */
 .score-container {
     text-align: center;
     padding: 30px;
@@ -410,7 +403,6 @@ header .navbar{
     box-shadow: 0 6px 15px rgba(100, 112, 234, 0.4);
 }
 
-/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
     .app {
         padding: 30px 20px;

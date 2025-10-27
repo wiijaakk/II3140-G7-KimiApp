@@ -97,7 +97,6 @@ const questions = [
     }
 ];
 
-// Mengambil elemen DOM yang dibutuhkan
 const startScreen = document.getElementById("start-screen");
 const quizScreen = document.getElementById("quiz-screen");
 const startButton = document.getElementById("start-btn");
@@ -105,30 +104,25 @@ const questionElement = document.getElementById("question");
 const choicesElement = document.getElementById("choices");
 const nextButton = document.getElementById("next-btn");
 
-// Variabel global
 let currentQuestionIndex = 0;
 let score = 0;
 
-// Menambahkan event listener saat DOM selesai dimuat
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM fully loaded');
     
-    // Memeriksa apakah elemen yang dibutuhkan ada
     if (!startButton) {
         console.error("Start button not found!");
     } else {
         console.log("Start button found, adding event listener");
         
-        // Menambahkan event listener untuk tombol mulai
         startButton.addEventListener("click", function() {
             console.log("Start button clicked");
-            startScreen.classList.add("hidden"); // Menyembunyikan layar awal
-            quizScreen.classList.remove("hidden"); // Menampilkan layar kuis
+            startScreen.classList.add("hidden");
+            quizScreen.classList.remove("hidden");
             startQuiz();
         });
     }
     
-    // Menambahkan event listener untuk tombol next
     if (nextButton) {
         nextButton.addEventListener("click", function() {
             if (currentQuestionIndex < questions.length) {
@@ -140,23 +134,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Fungsi untuk memulai kuis
 function startQuiz() {
     console.log("Starting quiz");
     currentQuestionIndex = 0;
     score = 0;
     nextButton.innerHTML = "Next";
-    // Reset progress bar
+
     const progressBar = document.querySelector(".progress");
     if (progressBar) {
-        progressBar.style.width = "12.5%"; // 100% / 8 questions
+        progressBar.style.width = "12.5%"; 
     }
     showQuestion();
 }
 
-// Fungsi untuk mengupdate progress
 function updateProgress() {
-    // Update nomor pertanyaan
     const currentQuestionElem = document.getElementById("current-question");
     const totalQuestionsElem = document.getElementById("total-questions");
     
@@ -164,8 +155,7 @@ function updateProgress() {
         currentQuestionElem.textContent = currentQuestionIndex + 1;
         totalQuestionsElem.textContent = questions.length;
     }
-    
-    // Update progress bar
+
     const progressBar = document.querySelector(".progress");
     if (progressBar) {
         const progressPercentage = ((currentQuestionIndex + 1) / questions.length) * 100;
@@ -173,7 +163,6 @@ function updateProgress() {
     }
 }
 
-// Fungsi untuk menampilkan pertanyaan
 function showQuestion() {
     console.log(`Showing question ${currentQuestionIndex + 1}`);
     resetState();
@@ -181,10 +170,8 @@ function showQuestion() {
     let questionNo = currentQuestionIndex + 1;
     questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
     
-    // Update progress
     updateProgress();
 
-    // Membuat tombol pilihan
     currentQuestion.answers.forEach(answer => {
         const button = document.createElement("button");
         button.innerHTML = answer.text;
@@ -197,27 +184,22 @@ function showQuestion() {
     });
 }
 
-// Fungsi untuk mereset state kuis
 function resetState() {
     nextButton.style.display = "none";
-    // Menghapus pilihan sebelumnya
     while (choicesElement.firstChild) {
         choicesElement.removeChild(choicesElement.firstChild);
     }
-    // Menghapus penjelasan jika ada
     const explanationDiv = document.querySelector(".explanation");
     if (explanationDiv) {
         explanationDiv.remove();
     }
 }
 
-// Fungsi untuk memilih jawaban
 function selectAnswer(e) {
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
     const currentQuestion = questions[currentQuestionIndex];
     
-    // Membuat elemen penjelasan
     const explanationDiv = document.createElement("div");
     explanationDiv.classList.add("explanation");
     
@@ -230,7 +212,6 @@ function selectAnswer(e) {
         explanationDiv.classList.add("wrong-explanation");
     }
     
-    // Menampilkan jawaban benar dan menonaktifkan semua tombol
     Array.from(choicesElement.children).forEach(button => {
         if (button.dataset.correct === "true") {
             button.classList.add("correct");
@@ -238,18 +219,15 @@ function selectAnswer(e) {
         button.disabled = true;
     });
     
-    // Menambahkan teks penjelasan
     explanationDiv.innerHTML = `
         <p><strong>${isCorrect ? "Benar!" : "Salah!"}</strong></p>
         <p>${currentQuestion.explanation}</p>
     `;
     
-    // Menyisipkan penjelasan sebelum tombol next
     choicesElement.insertAdjacentElement('afterend', explanationDiv);
     nextButton.style.display = "block";
 }
 
-// Fungsi untuk tombol Next
 function handleNextButton() {
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
@@ -259,7 +237,6 @@ function handleNextButton() {
     }
 }
 
-// Fungsi untuk menampilkan skor
 function showScore() {
     resetState();
     quizScreen.innerHTML = `
@@ -277,9 +254,8 @@ function showScore() {
         </div>
     `;
     
-    // Menambahkan event listener untuk tombol restart
     document.getElementById("restart-btn").addEventListener("click", function() {
-        location.reload(); // Memuat ulang halaman untuk memulai kembali
+        location.reload(); 
     });
 
     const finalPoints = score * 4;

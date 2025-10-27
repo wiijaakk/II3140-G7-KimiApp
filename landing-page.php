@@ -1,10 +1,11 @@
-<?php
+<?php 
 session_start();
 $uname = $_SESSION['username'] ?? '';
 function showUsername($uname){
     return !empty($uname) ? "<h2 class=\"hero-title\">Hello, $uname! Selamat datang di</h2>" : '';
 }
-?>
+?> 
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -42,7 +43,6 @@ function showUsername($uname){
           Pelajari konsep pencampuran larutan melalui simulasi digital yang aman, menyenangkan, dan mudah dipahami
         </p>
         <div class="hero-buttons">
-          <!-- ✅ ubah ke theory.html -->
           <a href="theory.html" class="btn btn-primary btn-lg">Mulai Belajar</a>
           <a href="#features" class="btn btn-outline btn-lg">Pelajari Lebih Lanjut</a>
         </div>
@@ -73,7 +73,6 @@ function showUsername($uname){
       <div class="container">
         <h3 class="section-title">Modul Pembelajaran</h3>
         <div class="modules-grid">
-          <!-- ✅ ubah ke theory.html -->
           <a href="theory.html" class="card-link">
             <div class="card module-card">
               <div class="module-icon">📚</div>
@@ -94,7 +93,6 @@ function showUsername($uname){
               </div>
             </div>
           </a>
-          <!-- ✅ ubah ke quiz.html -->
           <a href="quiz.html" class="card-link">
             <div class="card module-card">
               <div class="module-icon">✓</div>

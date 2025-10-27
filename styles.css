@@ -492,23 +492,3 @@ table tbody tr:hover {
     margin-right: 0.5rem;
     vertical-align: middle;
 }
-
-/* Responsive */
-/* @media (max-width: 768px) {
-    .simulation-wrapper {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .result-wrapper {
-        grid-template-columns: 1fr;
-    }
-
-    .navbar .nav-menu {
-        gap: 1rem;
-    }
-
-    .navbar .nav-menu .nav-link {
-        font-size: var(--font-size-s);
-    }
-} */
