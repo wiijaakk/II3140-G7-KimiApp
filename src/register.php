@@ -25,7 +25,7 @@ function showSuccess($msg){
     <main class="alt-main">
         <section class="masuk">
             <div class="masuk-card">
-                <img src="../assets/logo.png" alt="KimiApp" class="masuk-logo">
+                <img src="assets/logo.png" alt="KimiApp" class="masuk-logo">
                 <h1>Selamat datang di KimiApp!</h1>
                 <p id="error-message"></p>
                 <?= showError($err); ?>

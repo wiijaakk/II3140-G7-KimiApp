@@ -43,6 +43,10 @@
   font-size: var(--font-size-s);
 }
 
+a {
+    text-decoration: none;
+}
+
 body {
   background: linear-gradient(135deg, var(--soft-blue), var(--blue));
   color: var(--foreground);
@@ -529,7 +533,7 @@ tr:hover {
 .navigation-buttons {
   display: flex;
   gap: 1.5rem; 
-  justify-content: space-between;
+  justify-content: flex-end;
   margin-top: 2rem; 
 }
 
@@ -562,7 +566,7 @@ tr:hover {
 }
 
 .next-button:hover {
-  background-color: rgba(91, 106, 234, 0.9);
+  background-color: rgba(91, 106, 234, 0.7);
 }
 
 @media (max-width: 480px) {
