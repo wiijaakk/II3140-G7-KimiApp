@@ -5,7 +5,7 @@
 KimiApp adalah platform pembelajaran kimia interaktif berbasis web yang dirancang untuk membantu siswa memahami konsep pencampuran larutan. Aplikasi ini menyediakan laboratorium virtual yang aman dan menarik, memungkinkan pengguna untuk bereksperimen dengan berbagai reaksi kimia secara digital.
 
 <p align="center">
-  <img src="assets/landing-page.png" alt="Screenshot KimiApp" width="80%">
+  <img src="src/assets/landing-page.png" alt="Screenshot KimiApp" width="80%">
 </p>
 
 ---
