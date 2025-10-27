@@ -20,7 +20,7 @@ function showMaxScore($max_score){
       <nav class="navbar">
         <div class="nav-logo">
           <a href="landing-page.php">
-            <img src="assets/logo.png" alt="KimiApp Logo">
+            <img src="../assets/logo.png" alt="KimiApp Logo">
           </a>
         </div>
         <ul class="nav-menu">

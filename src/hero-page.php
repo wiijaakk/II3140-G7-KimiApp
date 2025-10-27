@@ -12,7 +12,7 @@
         <nav class="navbar">
             <nav class="nav-logo">
                 <a href="hero-page.php">
-                    <img src="assets/logo.png" alt="KimiApp Logo">
+                    <img src="../assets/logo.png" alt="KimiApp Logo">
                 </a>
             </nav>
             <ul class="nav-menu">
