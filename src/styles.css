@@ -85,7 +85,7 @@ header .navbar{
 }
 
 main{
-    --main-bg: url("assets/hero-page.png");
+    --main-bg: url("../assets/hero-page.png");
     background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), var(--main-bg);
     background-size: cover;
     background-position: center center;
@@ -96,7 +96,7 @@ main{
 }
 
 .alt-main{
-    --alt-bg: url("assets/login-register-page.png");
+    --alt-bg: url("../assets/login-register-page.png");
     --main-bg: var(--alt-bg, none);
     background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), var(--main-bg);
 }
