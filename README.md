@@ -27,6 +27,7 @@ Teknologi yang digunakan untuk membangun proyek ini:
 * **Struktur:** HTML5 Semantik
 * **Styling:** CSS3 (dengan Variabel Kustom)
 * **Interaktivitas:** JavaScript (Vanilla JS)
+* **Koneksi Database:** PHP
 
 ---
 
