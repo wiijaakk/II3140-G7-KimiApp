@@ -27,18 +27,11 @@ Teknologi yang digunakan untuk membangun proyek ini:
 * **Struktur:** HTML5 Semantik
 * **Styling:** CSS3 (dengan Variabel Kustom)
 * **Interaktivitas:** JavaScript (Vanilla JS)
+* **Koneksi Database:** PHP
 
 ---
 
-## Instalasi dan Menjalankan Lokal
+## Akses
 
-Untuk menjalankan proyek ini di komputer, ikuti langkah-langkah berikut:
-
-1.  **Clone repositori:**
-    ```bash
-    git clone [https://github.com/NAMA_USERMU/KimiApp.git](https://github.com/NAMA_USERMU/KimiApp.git)
-    cd KimiApp
-    ```
-
-2.  **Buka file `landing-page.html`** langsung di browser.
-    *(Opsional: Gunakan ekstensi "Live Server" di VS Code)*.
+Website bisa diakses di link berikut:
+https://ii3140-g7-kimiapp-production-d462.up.railway.app/
