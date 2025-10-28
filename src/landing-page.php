@@ -83,7 +83,7 @@ function showUsername($uname){
               </div>
             </div>
           </a>
-          <a href="simulation.html" class="card-link">
+          <a href="virtuallab.html" class="card-link">
             <div class="card module-card">
               <div class="module-icon">🧪</div>
               <h4 class="module-title">Simulasi Interaktif</h4>
@@ -93,7 +93,7 @@ function showUsername($uname){
               </div>
             </div>
           </a>
-          <a href="quiz.html" class="card-link">
+          <a href="quiz.php" class="card-link">
             <div class="card module-card">
               <div class="module-icon">✓</div>
               <h4 class="module-title">Kuis Akhir</h4>

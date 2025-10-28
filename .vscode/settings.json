@@ -1,0 +1,34 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "mysql://root:uTbIeOINBEFxcXHrdUUlsOCdQgtdyFNE@trolley.proxy.rlwy.net:40534/railway",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "Railway MySQL",
+            "database": "railway",
+            "username": "root",
+            "password": "uTbIeOINBEFxcXHrdUUlsOCdQgtdyFNE"
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "trolley.proxy.rlwy.net",
+            "port": 40534,
+            "driver": "MySQL",
+            "database": "railway",
+            "username": "root",
+            "password": "uTbIeOINBEFxcXHrdUUlsOCdQgtdyFNE",
+            "name": "Railway MYSQL"
+        }
+    ]
+}
