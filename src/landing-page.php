@@ -38,8 +38,8 @@ function showUsername($uname){
         </div>
       </div>
     </nav>
-
   </header>
+  
   <main class="home-main">
     <div class="deco-blob-1"></div>
     <div class="deco-blob-2"></div>

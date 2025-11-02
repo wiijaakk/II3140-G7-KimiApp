@@ -13,31 +13,25 @@
   --white-color: #ffffff;
   --blue: #5b6aea;
   --font-size-m: 1.1rem;
+  --soft-blue: #E1E5FD; /* Tambahan dari CSS lain */
 }
 
+/* === HEADER & NAVBAR (VERSI RAPI) === */
 header {
     background-color: var(--dark-blue);
     position: sticky;
     top: 0;
     z-index: 50;
     box-shadow: 0 2px 6px rgba(0,0,0,0.12);
-    width: 100%; /* <-- PASTIKAN INI ADA */
-}
-
-header .navbar{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 2rem;
+    width: 100%; 
 }
 
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 1rem 3rem; /* tambahin sedikit untuk padding visual */
+  justify-content: space-between; /* Penting */
+  padding: 1rem 2rem; /* Padding dari pinggir layar */
   width: 100%;
-  /* background-color: var(--dark-blue); */ /* <-- HAPUS ATAU KOMEN BARIS INI */
   box-sizing: border-box;
 }
 
@@ -50,21 +44,64 @@ header .navbar{
     object-fit: contain;
 }
 
-.navbar .nav-menu{
-    display: flex;
-    gap: 1.5rem;
+/* grup kanan (dari CSS bawah) */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem; /* jarak antara menu dan profil */
 }
 
-.navbar .nav-menu .nav-link{
-    padding: 0.2rem 0.4rem;
-    color: var(--white-color);
-    font-size: var(--font-size-m);
-    transition: 0.3s ease;
+/* menu (dari CSS bawah) */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.navbar .nav-menu .nav-link:hover {
-    color: var(--blue);
+/* link (dari CSS bawah) */
+.nav-link {
+  color: var(--white-color);
+  font-size: var(--font-size-m);
+  font-weight: 500;
+  transition: color 0.3s ease;
+  padding: 0.2rem 0.4rem; /* Padding dari CSS atas */
+  text-decoration: none; /* Pastikan tidak ada underline */
 }
+
+.nav-link:hover {
+  color: var(--blue);
+}
+
+/* profil (dari CSS bawah) */
+.nav-profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile-link {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.profile-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-link:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+/* === AKHIR DARI NAVBAR === */
+
 
 * {
   margin: 0;
@@ -359,62 +396,6 @@ a {
   text-align: center;
   color: rgba(17, 24, 39, 0.6); 
 }
-
-/* grup kanan */
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 2rem; /* jarak antara menu dan profil */
-}
-
-/* menu */
-.nav-menu {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-/* link */
-.nav-link {
-  color: var(--white-color);
-  font-size: var(--font-size-m);
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-  color: var(--blue);
-}
-
-/* profil */
-.nav-profile {
-  display: flex;
-  align-items: center;
-}
-
-.profile-link {
-  display: block;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.profile-icon {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.profile-link:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
-}
-
 
 @media (min-width: 640px) { 
   .hero-buttons {
