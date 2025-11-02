@@ -77,6 +77,16 @@ header .navbar{
     padding: 1rem 2rem;
 }
 
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 3rem; /* tambahin sedikit untuk padding visual */
+  width: 100%;
+  /* background-color: var(--dark-blue); */ /* <-- HAPUS ATAU KOMEN BARIS INI */
+  box-sizing: border-box;
+}
+
 .navbar .nav-logo img {
     --logo-height: 2.4rem;
     height: var(--logo-height);
@@ -607,4 +617,135 @@ tr:hover {
     padding: 1.25rem;
   }
 
+}
+
+/* === START: STYLE UNTUK PROGRESS BAR === */
+.progress-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 42rem; /* Menyamakan dengan max-width hero-description */
+  margin-top: 1.5rem;
+  padding: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.3); /* Latar belakang semi-transparan */
+  border-radius: var(--radius);
+  backdrop-filter: blur(5px);
+}
+
+.progress-container {
+  flex-grow: 1; /* Membuat container bar mengambil sisa ruang */
+  height: 0.75rem; /* Tinggi bar */
+  background-color: var(--primary-light); /* Warna background bar */
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: var(--primary); /* Warna foreground bar (yang terisi) */
+  border-radius: var(--radius);
+  transition: width 0.4s ease-in-out; /* Transisi saat progress bertambah */
+}
+
+.progress-text {
+  font-size: var(--font-size-s);
+  font-weight: 600;
+  color: var(--primary-dark);
+  flex-shrink: 0; /* Mencegah teks terpotong */
+}
+
+@media (max-width: 480px) {
+  .progress-wrapper {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+  
+  .progress-text {
+    text-align: center;
+    font-size: var(--font-size-xs);
+  }
+}
+/* === END: STYLE UNTUK PROGRESS BAR === */
+
+.navbar .nav-logo img {
+    --logo-height: 2.4rem; 
+    height: var(--logo-height);
+    max-width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    object-fit: contain;
+}
+
+.navbar .nav-menu{
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navbar .nav-menu .nav-link{
+    padding: 0.2rem 0.4rem;
+    color: var(--white-color);
+    font-size: var(--font-size-m);
+    transition: 0.3s ease;
+}
+
+.navbar .nav-menu .nav-link:hover {
+    color: var(--blue);
+}
+
+/* grup kanan */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem; /* jarak antara menu dan profil */
+}
+
+/* menu */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* link */
+.nav-link {
+  color: var(--white-color);
+  font-size: var(--font-size-m);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--blue);
+}
+
+/* profil */
+.nav-profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile-link {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.profile-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-link:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
 }

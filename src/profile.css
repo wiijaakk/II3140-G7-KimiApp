@@ -1,0 +1,396 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+/* === :ROOT VARIABEL (Sama seperti file lain) === */
+:root {
+  --primary-dark: #1e1f35;
+  --primary: #5b6aea;
+  --primary-light: #e1e5fd;
+  --neutral-light: #f5f5f5;
+  --dark-blue: #1e1f35;
+  --white-color: #ffffff;
+  --blue: #5B6AEA;
+  --soft-blue: #E1E5FD;
+  
+  --background: #ffffff;
+  --foreground: #1e1f35;
+  --card: #ffffff;
+  --card-foreground: #1e1f35;
+  --border: #e5e7eb;
+  --muted-foreground: #666666;
+  --radius: 0.625rem;
+  
+  --font-size-xs: 0.875rem; 
+  --font-size-s: 1rem; 
+  --font-size-m: 1.1rem;
+  --font-size-l: 1.25rem;
+  --font-size-xl: 1.5rem;  
+  --font-size-2xl: 2rem;    
+  --font-size-3xl: 2.5rem;  
+  --font-size-4xl: 3.5rem; 
+}
+
+/* === BASIC & HEADER STYLING (Konsisten) === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, var(--soft-blue), var(--blue));
+  color: var(--foreground);
+  min-height: 100vh;
+  font-size: var(--font-size-m); 
+  line-height: 1.6;
+}
+
+/* === INI BAGIAN YANG DIPERBAIKI === */
+header {
+    background-color: var(--dark-blue);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    width: 100%; /* <-- Biar full-width */
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 3rem; /* tambahin sedikit untuk padding visual */
+  width: 100%;
+  /* background-color: var(--dark-blue); */ /* <-- HAPUS ATAU KOMEN BARIS INI */
+  box-sizing: border-box;
+}
+
+
+.nav-logo img {
+    height: 2.4rem;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.nav-right-cluster {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 1.5rem;
+    list-style-type: none;
+}
+
+.nav-menu .nav-link {
+    padding: 0.2rem 0.4rem;
+    color: var(--white-color);
+    font-size: var(--font-size-m);
+    transition: 0.3s ease;
+    text-decoration: none;
+}
+
+.nav-menu .nav-link:hover {
+    color: var(--blue);
+}
+
+.nav-profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile-link {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  border: 2px solid transparent; /* Border transparan untuk jaga layout */
+}
+
+/* Tanda 'active' untuk di halaman profil */
+.profile-link.active {
+  border-color: var(--primary);
+  box-shadow: 0 0 10px var(--primary-light);
+}
+
+.profile-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-link:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+/* === HALAMAN PROFIL MAIN CONTENT === */
+.profile-main {
+  padding: 3rem 1rem;
+}
+
+.profile-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.card {
+  background-color: var(--card);
+  border: 1px solid rgba(229, 231, 235, 0.5);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(30, 31, 53, 0.1);
+}
+
+.profile-card {
+  padding: 2rem;
+}
+
+@media (min-width: 768px) {
+  .profile-card {
+    padding: 3rem;
+  }
+}
+
+/* Info User di atas */
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 2rem;
+}
+
+.profile-pic-large {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid var(--primary);
+  margin-bottom: 1.5rem;
+  object-fit: cover;
+}
+
+.username-title {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+.user-greeting {
+  font-size: var(--font-size-l);
+  color: var(--muted-foreground);
+  margin-top: 0.25rem;
+}
+
+/* Grid Statistik */
+.stats-grid {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.stat-item {
+  background-color: var(--neutral-light);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.stat-title {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--primary-dark);
+  margin-bottom: 1.5rem;
+}
+
+.stat-description {
+  font-size: var(--font-size-s);
+  color: var(--muted-foreground);
+  margin-top: 1.5rem;
+  line-height: 1.5;
+}
+
+.stat-description a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.stat-description a:hover {
+  text-decoration: underline;
+}
+
+/* Tampilan Skor Kuis */
+.quiz-score-display {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  color: var(--primary);
+}
+
+#quiz-score {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+#quiz-score-label {
+  font-size: var(--font-size-l);
+  font-weight: 600;
+}
+
+/* Progress Bar (Sama seperti theory.css) */
+.progress-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.progress-container {
+  flex-grow: 1;
+  height: 0.75rem;
+  background-color: var(--primary-light);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0, 0.1);
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: var(--primary);
+  border-radius: var(--radius);
+  transition: width 0.4s ease-in-out; /* <-- ERROR 's' DIHAPUS DARI SINI */
+}
+
+.progress-text {
+  font-size: var(--font-size-s);
+  font-weight: 600;
+  color: var(--primary-dark);
+  flex-shrink: 0;
+}
+
+
+/* Tombol Logout */
+.logout-section {
+  display: flex;
+  justify-content: center;
+}
+
+.logout-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: var(--font-size-m);
+  text-decoration: none;
+  background-color: #dc2626; /* Warna merah untuk logout */
+  color: white;
+  border: none;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+.logout-button:hover {
+  background-color: #b91c1c; /* Merah lebih gelap saat hover */ /* <-- ERROR 's' DIHAPUS DARI SINI */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(220, 38, 38, 0.4);
+}
+
+
+
+.navbar .nav-logo img {
+    --logo-height: 2.4rem; 
+    height: var(--logo-height);
+    max-width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    object-fit: contain;
+}
+
+.navbar .nav-menu{
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navbar .nav-menu .nav-link{
+    padding: 0.2rem 0.4rem;
+    color: var(--white-color);
+    font-size: var(--font-size-m);
+    transition: 0.3s ease;
+}
+
+.navbar .nav-menu .nav-link:hover {
+    color: var(--blue);
+}
+
+/* grup kanan */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem; /* jarak antara menu dan profil */
+}
+
+/* menu */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* link */
+.nav-link {
+  color: var(--white-color);
+  font-size: var(--font-size-m);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--blue);
+}
+
+/* profil */
+.nav-profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile-link {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.profile-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-link:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}

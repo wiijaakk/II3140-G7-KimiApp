@@ -6,6 +6,7 @@ if(isset($_POST['register'])){
     $email = isset($_POST['email']) ? trim($_POST['email']) : '';
     $username = isset($_POST['username']) ? trim($_POST['username']) : '';
     $password = isset($_POST['password']) ? $_POST['password'] : '';
+    $database_name = "kimiapp";
 
     $check = $conn->prepare("SELECT id FROM users WHERE email = ? LIMIT 1");
     $check->bind_param('s', $email);
