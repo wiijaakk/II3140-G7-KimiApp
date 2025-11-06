@@ -10,18 +10,27 @@
 <body>
     <header>
         <nav class="navbar">
-            <nav class="nav-logo">
-                <a href="landing-page.php">
-                    <img src="assets/logo.png" alt="KimiApp Logo">
-                </a>
-            </nav>
-            <ul class="nav-menu">
-                <li><a href="theory.html" class="nav-link">Teori</a></li>
-                <li><a href="virtuallab.html" class="nav-link">Simulasi</a></li>
-                <li><a href="quiz.php" class="nav-link">Kuis</a></li>
-                <li><a href="logout.php" class="nav-link">Logout</a></li>
-            </ul>
-        </nav>
+      <div class="nav-logo">
+        <a href="landing-page.php">
+          <img src="assets/logo.png" alt="KimiApp Logo">
+        </a>
+      </div>
+
+      <!-- cluster kanan -->
+      <div class="nav-right">
+        <ul class="nav-menu">
+          <li><a href="theory.html" class="nav-link">Teori</a></li>
+          <li><a href="virtuallab.html" class="nav-link">Simulasi</a></li>
+          <li><a href="quiz.php" class="nav-link">Kuis</a></li>
+        </ul>
+
+        <div class="nav-profile">
+          <a href="profile.php" class="profile-link" title="Lihat Profil">
+            <img src="assets/profile.png" alt="Profile" class="profile-icon">
+          </a>
+        </div>
+      </div>
+    </nav>
     </header>
     <main class="grad-bg">
         <div class="simulation-container">

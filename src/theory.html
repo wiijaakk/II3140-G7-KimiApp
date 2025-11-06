@@ -10,18 +10,27 @@
 <body>
   <header>
   <nav class="navbar">
-    <div class="nav-logo">
-      <a href="landing-page.php">
-        <img src="assets/logo.png" alt="KimiApp Logo">
-      </a>
-    </div>
-    <ul class="nav-menu">
-      <li><a href="theory.html" class="nav-link">Teori</a></li>
-      <li><a href="virtuallab.html" class="nav-link">Simulasi</a></li>
-      <li><a href="quiz.php" class="nav-link">Kuis</a></li>
-      <li><a href="logout.php" class="nav-link">Logout</a></li>
-    </ul>
-  </nav>
+      <div class="nav-logo">
+        <a href="landing-page.php">
+          <img src="assets/logo.png" alt="KimiApp Logo">
+        </a>
+      </div>
+
+      <!-- cluster kanan -->
+      <div class="nav-right">
+        <ul class="nav-menu">
+          <li><a href="theory.html" class="nav-link">Teori</a></li>
+          <li><a href="virtuallab.html" class="nav-link">Simulasi</a></li>
+          <li><a href="quiz.php" class="nav-link">Kuis</a></li>
+        </ul>
+
+        <div class="nav-profile">
+          <a href="profile.php" class="profile-link" title="Lihat Profil">
+            <img src="assets/profile.png" alt="Profile" class="profile-icon">
+          </a>
+        </div>
+      </div>
+    </nav>
 </header>
 
   <main>
@@ -32,7 +41,14 @@
           <p class="hero-description">
             Pelajari konsep dasar pencampuran larutan, jenis-jenis reaksi kimia, dan penyebab perubahan warna
           </p>
-        </div>
+          
+          <div class="progress-wrapper">
+            <div class="progress-container">
+              <div class="progress-bar" id="theory-progress-bar" style="width: 0%;"></div>
+            </div>
+            <span class="progress-text" id="theory-progress-text">0% Selesai</span>
+          </div>
+          </div>
       </div>
     </section>
 
@@ -432,8 +448,29 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // --- LOGIKA PROGRESS BAR ---
+      const totalSections = 4; // Total modul (basics, reactions, colors, safety)
+      const openedSections = new Set(); // Menyimpan section yang sudah dibuka
+      
+      const progressBar = document.getElementById('theory-progress-bar');
+      const progressText = document.getElementById('theory-progress-text');
+      
+      // Fungsi untuk update progress bar
+      function updateProgress() {
+        const progressPercent = (openedSections.size / totalSections) * 100;
+        progressBar.style.width = progressPercent + '%';
+        progressText.textContent = Math.round(progressPercent) + '% Selesai';
+      }
+      
+      // --- LOGIKA EXPAND/COLLAPSE ASLI ---
+      
+      // Buka section 'basics' secara default dan catat sebagai sudah dibaca
       document.getElementById('content-basics').classList.remove('hidden');
       document.getElementById('expand-basics').classList.add('expanded');
+      openedSections.add('basics');
+      updateProgress(); // Update progress saat halaman dimuat
+      
+      
       document.getElementById('section-basics').addEventListener('click', function() {
         toggleSection('basics');
       });
@@ -455,6 +492,7 @@
         const expandIcon = document.getElementById('expand-' + sectionId);
         
         if (content.classList.contains('hidden')) {
+          // Jika section tertutup (akan dibuka)
           document.querySelectorAll('.card-content').forEach(function(el) {
             el.classList.add('hidden');
           });
@@ -464,12 +502,19 @@
           
           content.classList.remove('hidden');
           expandIcon.classList.add('expanded');
+          
+          // --- Tambahkan ke progress tracker ---
+          openedSections.add(sectionId);
+          updateProgress(); 
+          // ------------------------------------
+          
         } else {
+          // Jika section sudah terbuka (akan ditutup)
           content.classList.add('hidden');
           expandIcon.classList.remove('expanded');
         }
       }
     });
   </script>
-</body>
+  </body>
 </html>

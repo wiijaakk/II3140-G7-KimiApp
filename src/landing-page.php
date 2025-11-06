@@ -22,14 +22,24 @@ function showUsername($uname){
           <img src="assets/logo.png" alt="KimiApp Logo">
         </a>
       </div>
-      <ul class="nav-menu">
-        <li><a href="theory.html" class="nav-link">Teori</a></li>
-        <li><a href="virtuallab.html" class="nav-link">Simulasi</a></li>
-        <li><a href="quiz.php" class="nav-link">Kuis</a></li>
-        <li><a href="logout.php" class="nav-link">Logout</a></li>
-      </ul>
+
+      <!-- cluster kanan -->
+      <div class="nav-right">
+        <ul class="nav-menu">
+          <li><a href="theory.html" class="nav-link">Teori</a></li>
+          <li><a href="virtuallab.html" class="nav-link">Simulasi</a></li>
+          <li><a href="quiz.php" class="nav-link">Kuis</a></li>
+        </ul>
+
+        <div class="nav-profile">
+          <a href="profile.php" class="profile-link" title="Lihat Profil">
+            <img src="assets/profile.png" alt="Profile" class="profile-icon">
+          </a>
+        </div>
+      </div>
     </nav>
   </header>
+  
   <main class="home-main">
     <div class="deco-blob-1"></div>
     <div class="deco-blob-2"></div>
