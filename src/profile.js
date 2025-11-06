@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (data.ok && data.completedSections) {
             openedSections = new Set(data.completedSections);
-            print(openedSections);
             updateProgress();
         }
         } catch (error) {
