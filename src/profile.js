@@ -15,22 +15,23 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (data.ok && data.completedSections) {
             openedSections = new Set(data.completedSections);
+            updateProgress();
         }
         } catch (error) {
         console.error('Error loading progress:', error);
         }
     }
-    loadProgressFromServer();
+
     let progressPercent = 0;
-    if (Array.isArray(openedSections) && openedSections.length > 0) {
-        progressPercent = (openedSections.length / totalSections) * 100;
+    function updateProgress() {
+        const progressPercent = (openedSections.size / totalSections) * 100;
+        const progressBar = document.getElementById('theory-progress-bar');
+        const progressText = document.getElementById('theory-progress-text');
+        
+        if (progressBar && progressText) {
+            progressBar.style.width = progressPercent + '%';
+            progressText.textContent = Math.round(progressPercent) + '% Selesai';
+        }   
     }
-      
-    const progressBar = document.getElementById('theory-progress-bar');
-    const progressText = document.getElementById('theory-progress-text');
-      
-    if (progressBar && progressText) {
-        progressBar.style.width = progressPercent + '%';
-        progressText.textContent = Math.round(progressPercent) + '% Selesai';
-    }   
+    loadProgressFromServer();
 });
