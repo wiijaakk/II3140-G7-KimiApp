@@ -27,6 +27,7 @@ if(isset($_POST['register'])){
     if($check->num_rows > 0){
         $_SESSION['register_error']='Username sudah dipakai!';
         $check->close();
+
         header('Location: register.php');
         exit();
     }
@@ -38,6 +39,12 @@ if(isset($_POST['register'])){
     $check->bind_param('sssi', $email, $username, $passwordHash, $max_score);
     if($check->execute()){
         $_SESSION['register_success'] = 'Pendaftaran berhasil. Silakan login.';
+        $check->close();
+        $check = $conn->prepare("INSERT INTO user_progress (user_id, completed_sections) VALUES (?, ?)");
+        $user_id = $conn->insert_id;
+        $empty_sections = json_encode([]);
+        $check->bind_param('is', $user_id, $empty_sections);
+        $check->execute();
         $check->close();
         header('Location: login.php');
         exit();
@@ -65,6 +72,14 @@ if(isset($_POST['login'])){
             $_SESSION['email'] = $user['email'];
             $_SESSION['max_score'] = (int) $user['max_score'];
             $check->close();
+            $check = $conn->prepare("SELECT * FROM user_progress WHERE user_id = ?");
+            $check->bind_param('i', $_SESSION['user_id']);
+            $check->execute();
+            $result = $check->get_result();
+            if($result && $result->num_rows === 1){
+                $progress = $result->fetch_assoc();
+                $_SESSION['progress'] = json_decode($progress['completed_sections'], true);
+            }
             header('Location: landing-page.php');
             exit();
         }

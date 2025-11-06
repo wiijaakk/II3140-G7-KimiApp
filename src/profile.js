@@ -1,0 +1,36 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const totalSections = 4; 
+    let openedSections = new Set();
+    async function loadProgressFromServer() {
+        try {
+        const response = await fetch('save_progress.php', {
+            method: 'GET',
+            credentials: 'same-origin'
+        });
+        const data = await response.json();
+        
+        if (!data.ok) {
+            console.error('Gagal memuat progress:', data.msg);
+        }
+        
+        if (data.ok && data.completedSections) {
+            openedSections = new Set(data.completedSections);
+        }
+        } catch (error) {
+        console.error('Error loading progress:', error);
+        }
+    }
+    loadProgressFromServer();
+    let progressPercent = 0;
+    if (Array.isArray(openedSections) && openedSections.length > 0) {
+        progressPercent = (openedSections.length / totalSections) * 100;
+    }
+      
+    const progressBar = document.getElementById('theory-progress-bar');
+    const progressText = document.getElementById('theory-progress-text');
+      
+    if (progressBar && progressText) {
+        progressBar.style.width = progressPercent + '%';
+        progressText.textContent = Math.round(progressPercent) + '% Selesai';
+    }   
+});

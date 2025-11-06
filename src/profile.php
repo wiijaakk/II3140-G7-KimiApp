@@ -1,6 +1,5 @@
 <?php
 session_start();
-// Ambil data dari session, berikan nilai default jika tidak ada
 $username = $_SESSION['username'] ?? 'Tamu';
 $max_score = $_SESSION['max_score'] ?? 0;
 ?>
@@ -22,7 +21,6 @@ $max_score = $_SESSION['max_score'] ?? 0;
         </a>
       </div>
 
-      <!-- cluster kanan -->
       <div class="nav-right">
         <ul class="nav-menu">
           <li><a href="theory.html" class="nav-link">Teori</a></li>
@@ -85,26 +83,6 @@ $max_score = $_SESSION['max_score'] ?? 0;
     </div>
   </main>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Ambil data progress teori dari localStorage (yang disimpan oleh theory.html)
-      const savedProgress = JSON.parse(localStorage.getItem('theoryProgress') || '[]');
-      const totalSections = 4; // Total modul di theory.html
-      
-      let progressPercent = 0;
-      if (Array.isArray(savedProgress) && savedProgress.length > 0) {
-        progressPercent = (savedProgress.length / totalSections) * 100;
-      }
-      
-      // Update progress bar dan teks di halaman profil
-      const progressBar = document.getElementById('theory-progress-bar');
-      const progressText = document.getElementById('theory-progress-text');
-      
-      if (progressBar && progressText) {
-        progressBar.style.width = progressPercent + '%';
-        progressText.textContent = Math.round(progressPercent) + '% Selesai';
-      }
-    });
-  </script>
+  <script src="profile.js"></script>
 </body>
 </html>

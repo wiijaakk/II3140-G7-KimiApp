@@ -16,7 +16,6 @@
         </a>
       </div>
 
-      <!-- cluster kanan -->
       <div class="nav-right">
         <ul class="nav-menu">
           <li><a href="theory.html" class="nav-link">Teori</a></li>
@@ -446,75 +445,7 @@
     </section>
   </main>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // --- LOGIKA PROGRESS BAR ---
-      const totalSections = 4; // Total modul (basics, reactions, colors, safety)
-      const openedSections = new Set(); // Menyimpan section yang sudah dibuka
-      
-      const progressBar = document.getElementById('theory-progress-bar');
-      const progressText = document.getElementById('theory-progress-text');
-      
-      // Fungsi untuk update progress bar
-      function updateProgress() {
-        const progressPercent = (openedSections.size / totalSections) * 100;
-        progressBar.style.width = progressPercent + '%';
-        progressText.textContent = Math.round(progressPercent) + '% Selesai';
-      }
-      
-      // --- LOGIKA EXPAND/COLLAPSE ASLI ---
-      
-      // Buka section 'basics' secara default dan catat sebagai sudah dibaca
-      document.getElementById('content-basics').classList.remove('hidden');
-      document.getElementById('expand-basics').classList.add('expanded');
-      openedSections.add('basics');
-      updateProgress(); // Update progress saat halaman dimuat
-      
-      
-      document.getElementById('section-basics').addEventListener('click', function() {
-        toggleSection('basics');
-      });
-      
-      document.getElementById('section-reactions').addEventListener('click', function() {
-        toggleSection('reactions');
-      });
-      
-      document.getElementById('section-colors').addEventListener('click', function() {
-        toggleSection('colors');
-      });
-      
-      document.getElementById('section-safety').addEventListener('click', function() {
-        toggleSection('safety');
-      });
-      
-      function toggleSection(sectionId) {
-        const content = document.getElementById('content-' + sectionId);
-        const expandIcon = document.getElementById('expand-' + sectionId);
-        
-        if (content.classList.contains('hidden')) {
-          // Jika section tertutup (akan dibuka)
-          document.querySelectorAll('.card-content').forEach(function(el) {
-            el.classList.add('hidden');
-          });
-          document.querySelectorAll('.expand-icon').forEach(function(el) {
-            el.classList.remove('expanded');
-          });
-          
-          content.classList.remove('hidden');
-          expandIcon.classList.add('expanded');
-          
-          // --- Tambahkan ke progress tracker ---
-          openedSections.add(sectionId);
-          updateProgress(); 
-          // ------------------------------------
-          
-        } else {
-          // Jika section sudah terbuka (akan ditutup)
-          content.classList.add('hidden');
-          expandIcon.classList.remove('expanded');
-        }
-      }
-    });
+  <script src="theory.js">
   </script>
   </body>
 </html>
