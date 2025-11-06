@@ -29,7 +29,6 @@
     --border-radius-m: 30px;
     --border-radius-circle: 50%;
 
-    /* aliases to match values used in src/theory.css so both stylesheets render consistently */
     --primary: var(--blue);
     --primary-dark: var(--dark-blue);
     --primary-light: var(--soft-blue);
