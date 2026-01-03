@@ -1,11 +1,10 @@
-FROM php:8.2-apache-bullseye
-
-RUN a2dismod mpm_event mpm_worker || true
-RUN a2enmod mpm_prefork || true
+FROM php:8.2-cli
 
 RUN docker-php-ext-install mysqli pdo pdo_mysql
-COPY ./src /var/www/html/
-RUN chown -R www-data:www-data /var/www/html
+
+WORKDIR /var/www/html
+COPY ./src .
+
 EXPOSE 80
 
-CMD ["apache2-foreground"]
+CMD ["php", "-S", "0.0.0.0:80", "-t", "/var/www/html"]
